@@ -1,0 +1,12 @@
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY);
+INSERT INTO "schema_migrations" VALUES('20170215053008');
+CREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+INSERT INTO "ar_internal_metadata" VALUES('environment','development','2017-03-15 08:17:24.630175','2017-03-15 08:17:24.630175');
+CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+INSERT INTO "posts" VALUES(1,'今日からProgateでRailsの勉強するよー！','2017-03-15 08:17:51.571548','2017-03-15 08:17:51.571548');
+INSERT INTO "posts" VALUES(2,'にんじゃわんこ可愛い。','2017-03-15 08:18:07.621565','2017-03-15 08:18:07.621565');
+DELETE FROM sqlite_sequence;
+INSERT INTO "sqlite_sequence" VALUES('posts',2);
+COMMIT;
